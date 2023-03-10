@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "notes/pb";
+
+message Note {
+  string title = 1;
+  string body = 2;
+}
+
+message GetNoteListRequest {}
+message GetNoteListResponse { repeated Note notes = 1; }
+
+service Storage {
+  rpc GetNoteList(GetNoteListRequest) returns (GetNoteListResponse) {}
+}
